@@ -5,9 +5,11 @@ IDEO is composed of 58K egocentric images of 6 object categories used in daily a
 
 ## Download
 
-IDEO dataset can be downloaded through the AWS CLI:
+IDEO dataset can be downloaded directly [here](https://ideo-dataset.s3.amazonaws.com/submission_public.zip), or through the AWS CLI:
 
 ```
 $ aws s3 cp s3://ideo-dataset/submission_public.zip /path/to/local/directory
 ```
+
+
 
