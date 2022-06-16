@@ -6,6 +6,7 @@ import numpy as np
 import torch
 from utils import get_camera_matrix, parse_intrinsics_file
 from pytorch3d.io import load_obj
+import argparse
 
 
 def convert_vert_to_camera_coords(v, K, R, t):
@@ -166,8 +167,13 @@ def render_mesh(video_dir, fid):
 
 
 if __name__ == '__main__':
-    txt_file = '/home/kvuong/dgx-projects/mount/home/jingfanguo/Documents/workspace/NOCS_new/splits/idea_amt_anno-0606/knife/test.txt'
-    video_root = '/home/kvuong/dgx-projects/mount/oitstorage/idea/submission_public'
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--txt_split_file', type=str, required=True)
+    parser.add_argument('--data_root', type=str, required=True)
+    args = parser.parse_args()
+
+    txt_file = args.txt_split_file
+    video_root = args.data_root
 
     # Read image paths and build the dataset dictionary
     with open(txt_file) as f:
