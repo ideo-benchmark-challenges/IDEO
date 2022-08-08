@@ -96,30 +96,41 @@ def render_mesh(video_dir, fid):
         # Load mesh
         mesh_file = anno_file.replace('.pkl', '.obj')
         assert os.path.exists(mesh_file)
+        mesh = load_obj(mesh_file, load_textures=False)
+        v = mesh[0]
+        f = mesh[1].verts_idx
+        verts_np = v.numpy()
 
-        # From raw_anno, build C_T_G
-        R_np = anno['raw_anno']['r'][:3, :3]
-        T_np = anno['raw_anno']['t']
-        # scale the center accordingly
-        T_np *= 1 / anno['raw_anno']['s'][0]
-        C_T_G = np.eye(4)
-        C_T_G[:3, :3] = R_np
-        C_T_G[:3, 3] = T_np
-
-        # build O_T_G (shifted-scaled version of G)
+        '''
+        There are 3 coordinate systems: camera frame (C), normalized object-centric frame (O), and global frame (G)
+        
+        From a raw mesh defined in the frame G, we center it at origin and normalize it to fit in unit cube. 
+        This newly centered, normalized mesh is the one in .obj file that we provided. 
+        Thus, this new mesh is defined in frame O, which is offset w.r.t. frame G by a translation (centering).
+        We can write this as: O_v = s * (O_R_G @ G_v + O_t_G) (Eq. 1), with O_R_G = eye(3)
+        These are defined in anno['post_proc'].
+        
+        On the other hand, we have anno['raw_anno'] which defines the scale and transformation of the raw mesh (defined in G) w.r.t. C, or C_T_G.
+        We can write this as: C_v = s_raw * C_R_G @ G_v + C_t_G (Eq. 2)
+        
+        The following demo code simply recovers G_v from O_v using Eq. 1, then project onto the camera frame C using Eq. 2.
+        '''
+        # Transform from O (normalized + re-centered mesh) to G (original raw mesh)
+        # O_v = s * (O_R_G @ G_v + O_t_G) => G_v = ...
         O_T_G = np.eye(4)
         O_T_G[:3, :3] = anno['post_proc']['r']
         O_T_G[:3, 3] = anno['post_proc']['t']
         G_T_O = np.linalg.inv(O_T_G)
+        verts_np /= anno['post_proc']['s'][0]
+        verts_np = verts_np @ G_T_O[:3, :3].T + G_T_O[:3, 3][None, :]
 
-        # get C_T_O for rendering
-        C_T_O = C_T_G @ G_T_O
+        # After getting G_v, use the raw annotation to project onto the image
+        # C_v = s_raw * C_R_G @ G_v + C_t_G
+        verts_np *= anno['raw_anno']['s'][0]  # scale the vertices by s_raw
+        v = torch.from_numpy(verts_np)
 
-        # scale the center accordingly
-        C_T_O[:3, 3] *= anno['post_proc']['s'][0]
-
-        R_np = C_T_O[:3, :3]
-        T_np = C_T_O[:3, 3]
+        R_np = anno['raw_anno']['r'][:3, :3]
+        T_np = anno['raw_anno']['t']
 
         R_pytorch3d = torch.tensor(R_np)[None, :].float()
         T_pytorch3d = torch.tensor(T_np)[None, :].float()
@@ -134,12 +145,6 @@ def render_mesh(video_dir, fid):
         # Gotta transpose since PyTorch3d use RHS notion
         R_pytorch3d = torch.tensor(R_out.T)[None, :].float()
         t_pytorch3d = torch.tensor(T_out)[None, :].float()
-
-        # Render onto image
-        # Load mesh
-        mesh = load_obj(mesh_file, load_textures=False)
-        v = mesh[0]
-        f = mesh[1].verts_idx
 
         # Project to image, vertex-by-vertex
         # TODO: add PyTorch3D rendering code
