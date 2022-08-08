@@ -1,5 +1,7 @@
 # Datasheet: Indoor 3D Egocentric Object (IDEO)
 
+Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
+
 ## Motivation
 
 *The questions in this section are primarily intended to encourage dataset creators to clearly articulate their reasons for creating the dataset and to promote transparency about funding interests.*
@@ -10,7 +12,7 @@
 
 2. **Who created this dataset (e.g. which team, research group) and on behalf of which entity (e.g. company, institution, organization)**?
 
-	The dataset was created by Tien Do, Lance Lemke, Jingfan Guo, Khiem Vuong, Minh Vo, and Hyun Soo Park in affiliated with University of Minnesota, Carnegie Mellon University, and Meta Reality Labs.
+	The dataset was created by Tien Do, Lance Lemke, Jingfan Guo, Khiem Vuong, Minh Vo, and Hyun Soo Park in affiliation with University of Minnesota, Carnegie Mellon University, and Meta Reality Labs.
 
 3. **What support was needed to make this dataset?** (e.g. who funded the creation of the dataset? If there is an associated grant, provide the name of the grantor and the grant name and number, or if it was supported by a company or government agency, give those details.)
 
