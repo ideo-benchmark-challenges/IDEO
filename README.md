@@ -33,3 +33,5 @@ participantID
     │        ├── <objLabel>_<objID>.obj
     │        └── <objLabel>_<objID>.pkl
 ```
+
+We provide support scripts to load and visualize the dataset in [vis_ideo_release.py](https://github.com/ideo-benchmark-challenges/IDEO/blob/main/vis_ideo_release.py). 
