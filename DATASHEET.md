@@ -16,7 +16,7 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 3. **What support was needed to make this dataset?** (e.g. who funded the creation of the dataset? If there is an associated grant, provide the name of the grantor and the grant name and number, or if it was supported by a company or government agency, give those details.)
 
-	*Your Answer Here*
+	Funding was provided by the National Science Foundation.
 
 4. **Any other comments?**
 
@@ -146,7 +146,7 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 13. **Has an analysis of the potential impact of the dataset and its use on data subjects (e.g. a data protection impact analysis) been conducted?** If so, please provide a description of this analysis, including the outcomes, as well as a link or other access point to any supporting documentation.
 
-	N/A
+	N/A.
 
 14. **Any other comments?**
 
@@ -159,19 +159,19 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 1. **Was any preprocessing/cleaning/labeling of the data done (e.g. discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)?** If so, please provide a description. If not, you may skip the remainder of the questions in this section.
 
-	*Your Answer Here*
+    Yes. We ask the trained users to filter out the corrupted data and identify the highly valuable parts of the raw data (e.g., we focus on hand-object interaction scenes), then we use Amazon Mechanical Turk crowd workers for annotating the 3D objects' 7-DoF (scale, rotation, and translation) manipulated by hand. Please see Section 3.2 in the main paper for more details.
 
 2. **Was the "raw" data saved in addition to the preprocessed/cleaned/labeled data (e.g. to support unanticipated future uses)?** If so, please provide a link or other access point to the "raw" data.
 
-	*Your Answer Here*
+    Yes. The raw data was saved, and we will release the entire raw data.
 
 3. **Is the software used to preprocess/clean/label the instances available?** If so, please provide a link or other access point.
 
-	*Your Answer Here*
+	We will release our annotation tool for public use.
 
 4. **Any other comments?**
 
-	*Your Answer Here*
+	None.
 
 
 ## Uses
@@ -180,27 +180,27 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 1. **Has the dataset been used for any tasks already?** If so, please provide a description.
 
-	*Your Answer Here*
+	At the time of publication, only the original paper.
 
 2. **Is there a repository that links to any or all papers or systems that use the dataset?** If so, please provide a link or other access point.
 
-	*Your Answer Here*
+	None at the time of publication.
 
 3. **What (other) tasks could the dataset be used for?**
 
-	*Your Answer Here*
+	The dataset could be used for any task related to 3D understanding of static and dynamic objects, especially for egocentric activities where dynamic objects are being manipulated by hands. 
 
 4. **Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses?** For example, is there anything that a future user might need to know to avoid uses that could result in unfair treatment of individuals or groups (e.g. stereotyping, quality of service issues) or other undesirable harms (e.g. financial harms, legal risks) If so, please provide a description. Is there anything a future user could do to mitigate these undesirable harms?
 
-	*Your Answer Here*
+	There is minimal risk for harm: we commit to redacting sensitive information that can be potentially used to identify the participants.
 
 5. **Are there tasks for which the dataset should not be used?** If so, please provide a description.
 
-	*Your Answer Here*
+	Systems trained on this data may or may not generalize well to other tasks if there exists a large domain gap between the testing and training data. Consequently, such systems should not - without additional verification - be used to make consequential decisions about people.  
 
 6. **Any other comments?**
 
-	*Your Answer Here*
+	None.
 
 
 ## Distribution
@@ -209,31 +209,31 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 1. **Will the dataset be distributed to third parties outside of the entity (e.g. company, institution, organization) on behalf of which the dataset was created?** If so, please provide a description.
 
-	*Your Answer Here*
+	Yes, the dataset is publicly available on the internet
 
 2. **How will the dataset will be distributed (e.g. tarball on website, API, GitHub)?** Does the dataset have a digital object identifier (DOI)?
 
-	*Your Answer Here*
+	The dataset itself is hosted on an AWS S3 bucket. It is distributed on our GitHub repository: https://github.com/ideo-benchmark-challenges/IDEO
 
 3. **When will the dataset be distributed?**
 
-	*Your Answer Here*
+	It is currently available to download and use.
 
 4. **Will the dataset be distributed under a copyright or other intellectual property (IP) license, and/or under applicable terms of use (ToU)?** If so, please describe this license and/or ToU, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms or ToU, as well as any fees associated with these restrictions.
 
-	*Your Answer Here*
+	No.
 
 5. **Have any third parties imposed IP-based or other restrictions on the data associated with the instances?** If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms, as well as any fees associated with these restrictions.
 
-	*Your Answer Here*
+	No.
 
 6. **Do any export controls or other regulatory restrictions apply to the dataset or to individual instances?** If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any supporting documentation.
 
-	*Your Answer Here*
+	Unknown to authors of the datasheet.
 
 7. **Any other comments?**
 
-	*Your Answer Here*
+	None.
 
 
 ## Maintenance
@@ -242,32 +242,32 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 1. **Who is supporting/hosting/maintaining the dataset?**
 
-	*Your Answer Here*
+	The authors are supporting/maintaining the dataset.
 
 2. **How can the owner/curator/manager of the dataset be contacted (e.g. email address)?**
 
-	*Your Answer Here*
+	The first author of the dataset, Tien Do, can be contacted at doxxx104@umn.edu.
 
 3. **Is there an erratum?** If so, please provide a link or other access point.
 
-	*Your Answer Here*
+	We will maintain a list of known errors on the dataset GitHub repo.
 
 4. **Will the dataset be updated (e.g. to correct labeling errors, add new instances, delete instances)?** If so, please describe how often, by whom, and how updates will be communicated to users (e.g. mailing list, GitHub)?
 
-	*Your Answer Here*
+	Yes. Subsequent corrections/updates will be posted on the dataset GitHub repo.
 
 5. **If the dataset relates to people, are there applicable limits on the retention of the data associated with the instances (e.g. were individuals in question told that their data would be retained for a fixed period of time and then deleted)?** If so, please describe these limits and explain how they will be enforced.
 
-	*Your Answer Here*
+	N/A.
 
 6. **Will older versions of the dataset continue to be supported/hosted/maintained?** If so, please describe how. If not, please describe how its obsolescence will be communicated to users.
 
-	*Your Answer Here*
+	Older versions will be kept around for consistency and comparison purposes.
 
 7. **If others want to extend/augment/build on/contribute to the dataset, is there a mechanism for them to do so?** If so, please provide a description. Will these contributions be validated/verified? If so, please describe how. If not, why not? Is there a process for communicating/distributing these contributions to other users? If so, please provide a description.
 
-	*Your Answer Here*
+	Others may do so and should contact the original authors about incorporating fixes/extensions.
 
 8. **Any other comments?**
 
-	*Your Answer Here*
+	None.
