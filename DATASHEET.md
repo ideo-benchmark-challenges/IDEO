@@ -20,7 +20,7 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 4. **Any other comments?**
 
-	*Your Answer Here*
+	None.
 
 
 ## Composition
@@ -29,71 +29,71 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 1. **What do the instances that comprise the dataset represent (e.g. documents, photos, people, countries)?** Are there multiple types of instances (e.g. movies, users, and ratings; people and interactions between them; nodes and edges)? Please provide a description.
 
-	*Your Answer Here*
+	The instances are videos taken by people wearing a head-mounted Kinect Azure cameras performing diverse daily indoor activities, e.g., cleaning, cooking, shopping, dish washing, and vacuuming, etc.
 
 2. **How many instances are there in total (of each type, if appropriate)?**
 
-	*Your Answer Here*
+	There are 58K RGB-D images with multiple 3D fitted object models, selected from 100 hours of egocentric videos performed by 85 subjects.
 
 3. **Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set?** If the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (e.g. geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (e.g. to cover a more diverse range of instances, because instances were withheld or unavailable).
 
-	*Your Answer Here*
+	The dataset is a sample of instances. It is intended to be a random sample of recorded daily activities from a diverse group of participants. No tests were run to determine representativeness. 
 
 4. **What data does each instance consist of?** "Raw" data (e.g. unprocessed text or images) or features? In either case, please provide a description.
 
-	*Your Answer Here*
+	Each raw data point consists of synchronized RGB-D image, where each object in the image is associated with their corresponding mesh, category label, 2D instance segmentation masks, and annotation data including its scale, orientation, and translation with respect to the camera.
 
 5. **Is there a label or target associated with each instance?** If so, please provide a description.
 
-	*Your Answer Here*
+	See above.
 
 6. **Is any information missing from individual instances?** If so, please provide a description, explaining why this information is missing (e.g. because it was unavailable). This does not include intentionally removed information, but might include, e.g. redacted text.
 
-	*Your Answer Here*
+	Everything is included. No data is missing.
 
 7. **Are relationships between individual instances made explicit (e.g. users' movie ratings, social network links)?** If so, please describe how these relationships are made explicit.
 
-	*Your Answer Here*
+	None explicitly.
 
 8. **Are there recommended data splits (e.g. training, development/validation, testing)?** If so, please provide a description of these splits, explaining the rationale behind them.
 
-	*Your Answer Here*
+	There are recommended data splits, see more in our Supplementary. We tried our best to make sure the testing/validation set is diverse and there's no overlapping between data in the training and testing/validation splits (e.g., different participants in different splits).
 
 9. **Are there any errors, sources of noise, or redundancies in the dataset?** If so, please provide a description.
 
-	*Your Answer Here*
+	See Preprocessing below.
 
 10. **Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g. websites, tweets, other datasets)?** If it links to or relies on external resources, a) are there guarantees that they will exist, and remain constant, over time; b) are there official archival versions of the complete dataset (i.e., including the external resources as they existed at the time the dataset was created); c) are there any restrictions (e.g. licenses, fees) associated with any of the external resources that might apply to a future user? Please provide descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate.
 
-	*Your Answer Here*
+	The dataset is entirely self-contained.
 
 11. **Does the dataset contain data that might be considered confidential (e.g. data that is protected by legal privilege or by doctor-patient confidentiality, data that includes the content of individuals' non-public communications)?** If so, please provide a description.
 
-	*Your Answer Here*
+	Unknown to the authors of the dataset.
 
 12. **Does the dataset contain data that, if viewed directly, might be offensive, insulting, threatening, or might otherwise cause anxiety?** If so, please describe why.
 
-	*Your Answer Here*
+	Unknown to the authors of the dataset.
 
 13. **Does the dataset relate to people?** If not, you may skip the remaining questions in this section.
 
-	*Your Answer Here*
+	Yes.
 
 14. **Does the dataset identify any subpopulations (e.g. by age, gender)?** If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset.
 
-	*Your Answer Here*
+	No.
 
 15. **Is it possible to identify individuals (i.e., one or more natural persons), either directly or indirectly (i.e., in combination with other data) from the dataset?** If so, please describe how.
 
-	*Your Answer Here*
+	No. Participants' identifications are not revealed. Sensitive data such as their faces and personal information are redacted. 
 
 16. **Does the dataset contain data that might be considered sensitive in any way (e.g. data that reveals racial or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)?** If so, please provide a description.
 
-	*Your Answer Here*
+	Sensitive data such as participants' faces and their personal information will be redacted. 
 
 17. **Any other comments?**
 
-	*Your Answer Here*
+	None.
 
 
 ## Collection
@@ -102,55 +102,55 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 1. **How was the data associated with each instance acquired?** Was the data directly observable (e.g. raw text, movie ratings), reported by subjects (e.g. survey responses), or indirectly inferred/derived from other data (e.g. part-of-speech tags, model-based guesses for age or language)? If data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how.
 
-	*Your Answer Here*
+	The data was mostly observable as raw RGB-D images/videos, except that there are additional labels/annotations being extracted by the process described in the main paper.
 
 2. **What mechanisms or procedures were used to collect the data (e.g. hardware apparatus or sensor, manual human curation, software program, software API)?** How were these mechanisms or procedures validated?
 
-	*Your Answer Here*
+	The subjects are asked to wear a head-mounted Kinect Azure camera while performing diverse daily indoor activities, e.g., cleaning, cooking, shopping, dish washing, and vacuuming.
 
 3. **If the dataset is a sample from a larger set, what was the sampling strategy (e.g. deterministic, probabilistic with specific sampling probabilities)?**
 
-	*Your Answer Here*
+	We randomly selected a subset of data that comprises diverse daily activities.
 
 4. **Who was involved in the data collection process (e.g. students, crowdworkers, contractors) and how were they compensated (e.g. how much were crowdworkers paid)?**
 
-	*Your Answer Here*
+	We recruited random participants to collect data. The participants received 35 USD for one hour of data.
 
 5. **Over what timeframe was the data collected?** Does this timeframe match the creation timeframe of the data associated with the instances (e.g. recent crawl of old news articles)? If not, please describe the timeframe in which the data associated with the instances was created. Finally, list when the dataset was first published.
 
-	*Your Answer Here*
+	The data was collected from May 2021 to Oct 2021.
 
 7. **Were any ethical review processes conducted (e.g. by an institutional review board)?** If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation.
 
-	*Your Answer Here*
+	Yes. We provide extra information at our recruiting website https://z.umn.edu/ideadc where the Institutional Review Board (IRB) approved consent form is available for the participant to sign before taking the data. We also attach this form (consent_form.pdf) with the supplementary material for review.
 
 8. **Does the dataset relate to people?** If not, you may skip the remainder of the questions in this section.
 
-	*Your Answer Here*
+	Yes.
 
 9. **Did you collect the data from the individuals in question directly, or obtain it via third parties or other sources (e.g. websites)?**
 
-	*Your Answer Here*
+	We collected the data from the individuals in question directly.
 
 10. **Were the individuals in question notified about the data collection?** If so, please describe (or show with screenshots or other information) how notice was provided, and provide a link or other access point to, or otherwise reproduce, the exact language of the notification itself.
 
-	*Your Answer Here*
+	Yes. We put up a recruiting flyer for the participants to sign up (see recruiting_flyer.pdf in Supplementary). The data collection kit was delivered to their residences with clear instructions on how to start/stop recording data. 
 
 11. **Did the individuals in question consent to the collection and use of their data?** If so, please describe (or show with screenshots or other information) how consent was requested and provided, and provide a link or other access point to, or otherwise reproduce, the exact language to which the individuals consented.
 
-	*Your Answer Here*
+	Yes. All the participants signed the Institutional Review Board (IRB) approved consent form before taking the data (see consent_form.pdf in Supplementary).
 
 12. **If consent was obtained, were the consenting individuals provided with a mechanism to revoke their consent in the future or for certain uses?** If so, please provide a description, as well as a link or other access point to the mechanism (if appropriate).
 
-	*Your Answer Here*
+	The participants can contact us directly in case they want to revoke their consent in the future.
 
 13. **Has an analysis of the potential impact of the dataset and its use on data subjects (e.g. a data protection impact analysis) been conducted?** If so, please provide a description of this analysis, including the outcomes, as well as a link or other access point to any supporting documentation.
 
-	*Your Answer Here*
+	N/A
 
 14. **Any other comments?**
 
-	*Your Answer Here*
+	None.
 
 
 ## Preprocessing / Cleaning / Labeling
