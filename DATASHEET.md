@@ -1,6 +1,6 @@
 # Datasheet: Indoor 3D Egocentric Object (IDEO)
 
-Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
+Based on the template from Gebru, Timnit, et al. "Datasheets for datasets." Communications of the ACM 64.12 (2021): 86-92.
 
 ## Motivation
 
@@ -57,7 +57,7 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 8. **Are there recommended data splits (e.g. training, development/validation, testing)?** If so, please provide a description of these splits, explaining the rationale behind them.
 
-	There are recommended data splits, see more in our Supplementary. We tried our best to make sure the testing/validation set is diverse and there's no overlapping between data in the training and testing/validation splits (e.g., different participants in different splits).
+	There are recommended data splits, see more in our Supplementary Material. We tried our best to make sure the testing/validation set is diverse and there's no overlapping between data in the training and testing/validation splits (e.g., different participants/scenes in different splits).
 
 9. **Are there any errors, sources of noise, or redundancies in the dataset?** If so, please provide a description.
 
@@ -85,7 +85,7 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 15. **Is it possible to identify individuals (i.e., one or more natural persons), either directly or indirectly (i.e., in combination with other data) from the dataset?** If so, please describe how.
 
-	No. Participants' identifications are not revealed. Sensitive data such as their faces and personal information are redacted. 
+	No. Participants' identifications are not revealed. Sensitive data such as their faces and personal information will be redacted. 
 
 16. **Does the dataset contain data that might be considered sensitive in any way (e.g. data that reveals racial or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)?** If so, please provide a description.
 
@@ -163,7 +163,7 @@ Datasheets for Datasets: https://arxiv.org/pdf/1803.09010.pdf
 
 2. **Was the "raw" data saved in addition to the preprocessed/cleaned/labeled data (e.g. to support unanticipated future uses)?** If so, please provide a link or other access point to the "raw" data.
 
-    Yes. The raw data was saved, and we will release the entire raw data.
+    Yes. The raw data was saved, and we will release the entire raw data at the time of publication.
 
 3. **Is the software used to preprocess/clean/label the instances available?** If so, please provide a link or other access point.
 
